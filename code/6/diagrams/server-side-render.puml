@@ -1,0 +1,29 @@
+@startuml
+
+actor User
+
+User -> Browser : Go to site.com
+Browser -> Server: GET site.com/
+
+Server -> Server: Template index.jsp
+Server --> Browser: Return index.html
+
+note over Browser: Parse\n<script src="index.js">
+
+Browser -> Server: GET index.js
+Server --> Browser: Return index.js
+
+... later ...
+
+User -> Browser : Navigate to site.com/profile
+Browser -> Server: GET site.com/profile
+
+Server -> Server: Template profile.jsp
+Server --> Browser: Return profile.html
+
+note over Browser: Parse\n<script src="profile.js">
+
+Browser -> Server: GET profile.js
+Server --> Browser: Return profile.js
+
+@enduml

@@ -1,0 +1,69 @@
+<html>
+<head>
+  <title>Hello world</title>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.0/react.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.0/react-dom.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <!--
+    When writing a SPA, browser will parse the HTML and any JavaScript and then we need to initialize or bootstrap the application.
+    For now, we are going to do that right on this page in the simplest way possible.
+  -->
+  <script type="text/javascript">
+    var helloWorld = React.createElement("div", null, "Hello World");
+    // React.createElement(component|tag, props, children) --> Create and return a new React element, in memory, not rendered
+    // This is part of the special sauce, React has a clear separation between JS and the DOM, explicit about when DOM is modified
+
+    ReactDOM.render(
+      helloWorld,
+      document.getElementById("root")
+    );
+    // ReactDOM.render(component, container) --> Render a React element into the DOM in the supplied container
+    // If the React element was previously rendered into container, this will perform an update on it
+    //  and only mutate the DOM as necessary to reflect the latest React element. (performance and efficiency)
+
+    // Applications built with just React usually have a single root DOM node. If you are integrating React into an existing app,
+    //  you may have as many isolated root DOM nodes as you like.
+
+    // This will likely be the only time in a React app where you do document.getElementById()! :)
+  </script>
+</body>
+</html>
+
+
+<!--
+  1. HTML skeleton - index-0.html
+  2. Hello world and `open index.html`
+    - `open` should open it up in your default browser. If not, `pwd`, copy and paste into browser url bar
+  3. React.createElement, then ReactDOM.render, then div#root
+  4. Add inline script tags
+  5. Why this first?
+
+  6. Review.
+  7. git init. git add. git commit.
+-->
+
+<!--
+  Why this?
+
+  To highlight the basic building blocks.
+  At the end of the day, a front end app is an HTML page with JS executing in the browser. With a front end app, the entire app
+    is delivered to the web browser, and thats it.
+  Don't even need a web server to serve this... this is an important concept.
+
+  React.createElement and ReactDOM.render are building blocks of React.
+  This also shows the core concepts of react. No 2-way binding. Just render stuff. When it changes, render it again.
+
+  Obviously, inline JS does not scale very well.
+  React.createElement is clunky and a bit obfuscated. Going to get into cleaner way to write it and move away from the inline stuff.
+
+  In production app for client, would probably skip this step unless I was helping someone learn.
+-->
+
+<!--
+  Next: show what we are building, and move into creating the first tweet box component, still using vanilla JS
+-->

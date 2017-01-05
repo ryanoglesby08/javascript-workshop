@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TWeet Box</title>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/javascript" src="/application.bundle.js"></script>
+</body>
+</html>
+
+<!--
+  0. Explain how serving static assets will work
+
+  1. `npm install express --save-dev`
+  2. Give attendees the server.js
+  3. Change the path for the application bundle in index.html
+  5. `node server.js`
+  6. `npm run build:watch`
+  7. open http://localhost:8080
+  8. Change "main" in package.json to server.js and `npm start`
+    - Make a change and then refresh to show it take effect
+
+  ** git commit here **
+
+  9. `npm install webpack-dev-server --save-dev`
+
+    This binds a small express server on localhost:8080 which serves your static assets as well
+    as the bundle (compiled automatically). It automatically updates the browser page when a
+    bundle is recompiled (SockJS). Open http://localhost:8080/webpack-dev-server/bundle in your browser.
+
+    The dev server uses webpack’s watch mode. It also prevents webpack from emitting the
+    resulting files to disk. Instead it keeps and serves the resulting files from memory.
+
+  10. `./node_modules/.bin/webpack-dev-server --progress --colors`
+  11. open http://localhost:8080/webpack-dev-server/ (Don't forget the final /, its important)
+  12. Add a script for that in package.json.
+  13. Make a change to a component to show the hot reloading
+
+  14. Review
+  15. git commit
+-->
+
+<!--
+
+-->

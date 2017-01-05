@@ -1,0 +1,20 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f5f8fa;
+}
+
+html, body, #root {
+  height: 100%;
+}

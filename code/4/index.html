@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TWeet Box</title>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.0/react.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.0/react-dom.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/javascript" src="dist/TweetBox.js"></script>
+  <script type="text/javascript" src="dist/index.js"></script>
+</body>
+</html>
+
+<!--
+  1. Add character count feature. Must convert TweetBox to an ES6 class.
+  2. Review
+  3. git commit
+-->
+
+<!--
+  Next:
+
+  So far this architecture has been working just fine, we are using ES6 and JSX which is cool.
+  Our code runs efficiently.
+
+  But there are some major deficiencies and an app structured like this just won't scale.
+  1) It will become a hassle to add a <script> tag for every component we create and every library we need. Also this is not good for
+    performance in an HTTP 1.1 world
+  2) Not managing versions of runtime libraries and depend on external CDNs
+  3) Everything is a global! No declared dependencies of JS files. Rely on presence of global variables.
+
+  We need to introduce modularity and explicit dependency management into our app.
+  We need to take it from just being an assortment of JS files to an actual application.
+
+  To do that: webpack.
+-->

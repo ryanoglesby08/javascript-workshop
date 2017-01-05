@@ -1,0 +1,34 @@
+@startuml
+
+actor User
+
+User -> Browser: Go to site.com
+Browser -> Server: GET site.com/
+
+Server --> Browser: Return index.html
+
+note over Browser: Parse\n<script src="app.js">
+
+Browser -> Server: GET app.js
+Server --> Browser: Return app.js
+
+... later ...
+
+User -> Browser: Navigate to site.com/profile
+Browser -> Browser: Load /profile\ncomponents
+
+... later ...
+
+User -> Browser: Go to site.com/friends
+Browser -> Server: GET site.com/friends
+
+Server --> Browser: Return index.html
+
+note over Browser: Parse\n<script src="app.js">
+
+Browser -> Server: GET app.js
+Server --> Browser: Return app.js
+
+Browser -> Browser: Load /friends\ncomponents
+
+@enduml
