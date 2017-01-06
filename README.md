@@ -1,10 +1,10 @@
 Starting a Modern Front-end App from Scratch: A Workshop
 ======================
 
-_Audience_: Developers who want to know how modern technologies and tools fit together
-            to create a front-end app
-_Length_: 3.5 hours?
-_Pre-requisites_:
+**Audience**: Developers who want to know how modern technologies and tools fit together
+            to create a front-end app<br/>
+**Length**: 3.5 hours?<br/>
+**Pre-requisites**:
 - Basic familiarity with JavaScript and HTML
 - Comfortable with basic command line
 
