@@ -7,6 +7,8 @@ var TweetBox = function(props) {
 /*
   1. Create the component with props, but it will not get used yet.
 
+    var TweetBox = a global variable
+
     This function is a valid React component because it accepts a single "props" object argument with data and returns a React element.
     We call such components "functional" because they are literally JavaScript functions. Recommended.
 

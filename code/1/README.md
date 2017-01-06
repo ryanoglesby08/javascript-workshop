@@ -12,7 +12,6 @@ Establish core building blocks of HTML and React app.
 
 ## Concepts
 
-* HTML5
 * React element vs React Component
 * ReactDOM and separation of JS and DOM manipulation
 
