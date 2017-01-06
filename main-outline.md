@@ -12,7 +12,7 @@
 02:30 - [5] Becoming an application (30 min) ???
 03:00 - [6] A real server (10 min)
 -- 5 min padding --
-03:15 - [7] Add component to show list of tweets (??? min)
+03:15 - [7] Add component to show list of tweets (20 min)
 
 
 

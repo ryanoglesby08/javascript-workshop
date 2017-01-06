@@ -46,21 +46,21 @@ console.log(sum);
 
 var add = function(x, y) {
   return x + y;
-}
+};
 
 var sum = add(3,4);
 console.log(sum);
 
+var multiply = function(x, y) {
+  return x * y;
+};
+
 var operate = function(operation, x, y) {
   return operation(x, y);
-}
+};
 
 sum = operate(add, x, y);
 console.log(sum);
-
-var multiply = function(x, y) {
-  return x * y;
-}
 
 var product = operate(multiply, x, y);
 console.log(product);
