@@ -6,8 +6,11 @@
   indicate that you have something to type.
 
   Paste this entire file into a JavaScript REPL such as http://www.jsbin.com or
-  http://www.jsfiddle.net and go through the sections, implementing and uncomments
-  things as needed.
+  http://www.jsfiddle.net and follow the instructions below, implementing and
+  uncommenting things as needed.
+  I prefer jsbin.com becuase it has a "console" tab you can keep open. With
+  jsfiddle.net you will need to open your browser's deveoper tools JavaScript console
+  to see output during these exercises.
 
   Have fun!
 */
