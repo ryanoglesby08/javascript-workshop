@@ -72,7 +72,8 @@ var add = function(x, y) {
 
 // TODO: Invoke the `add` function and print the result to the console.
 
-
+sum = add(2, 8);
+console.log(sum);
 
 
 
@@ -97,13 +98,19 @@ var calculate = function(operation, x, y) {
 // TODO: Invoke the calculate function with 3 arguments, in order to add 2 numbers
 //  together. The first one should be a function. Then print the result to the console.
 
-// sum = calculate(   insert 3 arguments here...   );
+sum = calculate(add, 3, 6);
+console.log(sum);
 
 // TODO: Write another function called `multiply` that accepts 2 arguments and
 //  returns their product. Invoke the `calculate` function to perform
 //  the muliplication. Then print the result to the console.
 
+var multiply = function(x, y) {
+  return x * y;
+};
 
+var product = calculate(multiply, 3, 6);
+console.log(product);
 
 
 
@@ -120,19 +127,22 @@ var calculate = function(operation, x, y) {
 var createAdder = function(numberToAdd) {
   // TODO: Instead of null, assign the variable `adderFunction` to a function that
   //  accepts a single parameter, `x`, and returns the result of adding `x` and `numberToAdd`
-  var adderFunction = null;
+  var adderFunction = function(x) {
+    return add(x, numberToAdd);
+  };
 
   return adderFunction;
 };
 
 var addTwoTo = createAdder(2);
 // TODO: Uncomment me to see the example usage.
-// console.log(addTwoTo(5));
+console.log(addTwoTo(5));
 
 
 // TODO: Create an adder with 3 as the `numberToAdd`. Then use it to add 3 to another
 //  number and print the result to the console.
-
+var addThreeTo = createAdder(3);
+console.log(addThreeTo(5));
 
 
 
@@ -162,8 +172,10 @@ var numbers = [1, 4, 9, 16];
       for an example: http://www.w3schools.com/js/js_loop_for.asp
 */
 
-// for(;;) { }
-
+for(var i = 0; i < numbers.length; i++) {
+  numbers[i] *= 2;
+}
+console.log(numbers);
 
 /*
   The for loop has a few deficiencies. First, we are likely changing, or mutating,
@@ -183,12 +195,12 @@ var numbers = [1, 4, 9, 16];
   TODO: Uncomment it to see it run.
 */
 
-//  var positivesAndNegatives = [-1, 2, -3, 4, -5];
-//  var negativesAndPositives = positivesAndNegatives.map(function(n) {
-//    return n * -1;
-//  });
-//  console.log(positivesAndNegatives);
-//  console.log(negativesAndPositives);
+ var positivesAndNegatives = [-1, 2, -3, 4, -5];
+ var negativesAndPositives = positivesAndNegatives.map(function(n) {
+   return n * -1;
+ });
+ console.log(positivesAndNegatives);
+ console.log(negativesAndPositives);
 
 /*
   More docs for Array#map: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Map#Syntax
@@ -204,7 +216,10 @@ numbers = [1, 4, 9, 16];
     to verify that it remains unchanged.
 */
 
-// var doubles = numbers.map(    insert mapping function here...    );
+var doubles = numbers.map(function(n) {
+  return n * 2;
+});
+console.log(doubles);
 
 /*
   TODO: `Math.sqrt` is a function that will return the square root of a number.
@@ -212,6 +227,8 @@ numbers = [1, 4, 9, 16];
     of the elements of the `numbers` array. Then print the result to the console.
 */
 
+var roots = numbers.map(Math.sqrt);
+console.log(roots);
 
 
 numbers = [1, 2, 3, 4, 5];
@@ -230,7 +247,11 @@ numbers = [1, 2, 3, 4, 5];
     Hint: For loops in JavaScript are identical to for loops in Java. Look here
       for an example: http://www.w3schools.com/js/js_loop_for.asp
 */
-
+sum = 0;
+for(var i = 0; i < numbers.length; i++) {
+  sum += numbers[i];
+}
+console.log(sum);
 
 
 
@@ -251,11 +272,11 @@ numbers = [1, 2, 3, 4, 5];
   TODO: Uncomment it to see it run.
 */
 
-//  var randomNumbers = [10, 5, 9, 12, 3];
-//  var max = randomNumbers.reduce(function(currentMax, n) {
-//    return n > currentMax ? n : currentMax;
-//  }, 0);
-//  console.log("The max of " + randomNumbers + " is " + max);
+ var randomNumbers = [10, 5, 9, 12, 3];
+ var max = randomNumbers.reduce(function(currentMax, n) {
+   return n > currentMax ? n : currentMax;
+ }, 0);
+ console.log("The max of " + randomNumbers + " is " + max);
 
 /*
   More docs for Array#reduce: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce#Syntax
@@ -269,7 +290,13 @@ numbers = [1, 2, 3, 4, 5];
     array to the console to verify that it remains unchanged.
 */
 
-// sum = numbers.reduce(    insert reducing function here...    , 0);
+sum = numbers.reduce(function(currentSum, n) {
+  return currentSum + n;
+}, 0);
+console.log(sum);
+
+sum = numbers.reduce(add, 0);
+console.log(sum);
 
 
 /*
@@ -277,7 +304,8 @@ numbers = [1, 2, 3, 4, 5];
     the factorial of 5. (1 * 2 * 3 * 4 * 5). Print the result to the console.
 */
 
-
+var factorial = numbers.reduce(multiply, 1);
+console.log(factorial);
 
 
 
@@ -315,6 +343,22 @@ var employees = [
     * No if statements allowed! :)
     * The `Array#filter` method may come in hany here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Filter
 */
+
+var names = employees.map(function(employee) {
+  return employee.name;
+});
+console.log(names);
+
+var employeesById = employees.reduce(function(employeesMap, employee) {
+  employeesMap[employee.id] = employee;
+  return employeesMap;
+}, {})
+console.log(employeesById);
+
+var totalTenure = employees
+  .filter(function(employee) { return employee.tenure > 20; })
+  .reduce(function(total, employee) { return total + employee.tenure;}, 0);
+console.log("Total tenure is " + totalTenure + " years.");
 
 
 console.log("Done!");
