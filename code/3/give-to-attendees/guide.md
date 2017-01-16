@@ -52,7 +52,7 @@ So, they introduced a new syntax, called JSX, to make it better.
 
    If you are using a modern browser, such as Google Chrome or Firefox, the app will
     continue to work as before. The latest versions of all modern browsers have
-    support for ECMAScript 6. However, older browsers such as IE 9 do not.
+    support for ECMAScript 6. However, older browsers such as IE 11 and below do not.
 
    If something goes wrong, check the JavaScript console for errors. You most likely
     have a syntax error.
@@ -87,7 +87,7 @@ So, they introduced a new syntax, called JSX, to make it better.
     First, now that we are writing our JavaScript using modern ES6 features, we lose support
     for the many older browsers that remain in use. Furthermore, as the ECMAScript
     standard advances, we will want to use new features as they become available, before
-    any browsers support them (such as Object Rest Spread, which becomes very useful
+    any browsers support them (such as Object Rest/Spread, which becomes very useful
     in React apps).
     Second, now that we are writing our React components using JSX syntax, while
     gaining a friendly syntax, we lose support for all browsers.
@@ -142,9 +142,8 @@ should do what it is telling you. I'm marking them so you don't miss them. **
 
   `$ cat node_modules/array-unique/index.js`
 
-  Here is an example. The array-unique package has 1 file that
-
-  TODO: finish the description here according to the homepage!
+  Here is an example. The array-unique package has 1 file that returns an array
+   free of duplicate values. It is 28 lines long, included comments.
 
 3. Verify the Babel is installed and is executable.
 
@@ -219,9 +218,8 @@ should do what it is telling you. I'm marking them so you don't miss them. **
 
   `$ ./node_modules/.bin/babel index.js`
 
-  BOOM! You should see a syntax error similar to what you saw in the browser before.
-
-  TODO: Run this to get the actual error!
+  BOOM! You should see a syntax error similar to what you saw in the browser before:
+   `SyntaxError: index.js: Unexpected token`
 
   The "latest" preset only includes standard ECMAScript syntax and features, but JSX
    is not a standard part of the language. We will need to install and configure
@@ -301,3 +299,20 @@ should do what it is telling you. I'm marking them so you don't miss them. **
 
 ** Done! **
 Make a commit to save your progress!
+
+
+## Further Exploration:
+
+* ECMASCript 6
+  * Browser support: <https://kangax.github.io/compat-table/es6/>
+  * Features docs and syntax: <http://es6-features.org/>
+* JSX
+  * Introducing JSX: <https://facebook.github.io/react/docs/introducing-jsx.html>
+  * JSX In Depth: <https://facebook.github.io/react/docs/jsx-in-depth.html>
+* Babel
+  * CLI usage: <https://babeljs.io/docs/usage/cli/>
+  * Babel presets list: <https://babeljs.io/docs/plugins/>
+  * Why Babel Matters: <http://codemix.com/blog/why-babel-matters>
+* npm
+  * The package.json file: <https://docs.npmjs.com/files/package.json>
+  * scripts: <https://docs.npmjs.com/misc/scripts>
