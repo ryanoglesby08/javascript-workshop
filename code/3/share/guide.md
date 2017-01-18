@@ -5,9 +5,16 @@ Welcome to the next module of the workshop. This document will be your guide for
 this one. Follow the steps in order to introduce ECMAScript 6, JSX syntax, and the
 Babel JavaScript compiler to your project.
 
+
+## Instructions
+
 You will be editing your code and using the command line as part of this module.
-Lines that start with "$" are commands that you should enter into your terminal.
+Lines that start with `$ <command>` are commands that you should enter into your terminal.
 I recommend that you manually type the commands rather an copy-pasting.
+
+In addition to lines that start with `$`, lines that start with [DO] mean you
+should do what it is telling you. I'm marking them so you don't miss them.
+
 
 ## Preface
 
@@ -31,7 +38,7 @@ So, they introduced a new syntax, called JSX, to make it better.
 1. Extract the inlined JavaScript with the `ReactDOM.render` from index.html into
     a new file called index.js.
 
-   Include it with a <script> tag in index.html _after_ TweetBox.js.
+   [DO] Include it with a <script> tag in index.html _after_ TweetBox.js.
 
    Here is what should be inside the <body> tag in index.html:
 
@@ -46,7 +53,26 @@ So, they introduced a new syntax, called JSX, to make it better.
    ... nothing to do here! It is actually already in valid ES6. :)
 
 3. Rewrite TweetBox.js in valid ES6 syntax.
-   TODO: FINISH THIS!!!!
+   * [DO] Replace all `var` declarations with `const`, except for `var tweetInput`.
+     <https://babeljs.io/learn-es2015/#ecmascript-2015-features-let-const>
+   * [DO] Replace `var tweetInput` with `let tweetInput`.
+     <https://babeljs.io/learn-es2015/#ecmascript-2015-features-let-const>
+   * [DO] Replace all `function` declarations with the arrow function syntax.
+      for example:
+      ```js
+      // Instead of...
+      var hello = function(name) {
+        return "Hello " + name;
+      };
+
+      // use this.
+      const hello = (name) => {
+        return "Hello " + name;
+      };
+      ```
+     <https://babeljs.io/learn-es2015/#ecmascript-2015-features-arrows-and-lexical-this>
+
+   There is more we could do, but this is enough to give you a taste of the syntax.
 
 4. Refresh index.html in your browser.
 
@@ -66,14 +92,38 @@ So, they introduced a new syntax, called JSX, to make it better.
     React Components easier, so the changes are minimal and only effect React Components.
     Fundamentally, JSX provides syntactic sugar for `React.createElement`.
 
-   Change this:
+   [DO] Change this:
     `React.createElement(TweetBox, {placeholder: "What's happening?"})`
    to this:
     `<TweetBox placeholder="What's happening?" />`
 
+   Remember, the second parameter to `React.createElement` are the props, as a JavaScript
+   object, that get passed into the component. In JSX syntax, we specify those props
+   using a syntax similar to HTML attributes. So, the syntax for JSX is basically:
+   `<ComponentName prop1="value1" prop2="value2" />`.
+
 2. Rewrite TweetBox.js using JSX syntax.
 
-    TODO: FINISH THIS!!!!
+   [DO] As always, you must return a single React element from your component. So start
+   by returning a single div. Like this:
+   ```js
+    return (
+      <div>
+      </div>
+    );
+   ```
+
+   [DO] Now move the button element inside that div, using JSX syntax. Use curly braces
+   to evaluate JavaScript as a prop value instead of a hard-coded string.
+   ```js
+    <input type="button" value="Tweet" onClick={handleClick} />
+   ```
+
+   [DO] Finally, move the textarea element inside the div, using JSX syntax. Use
+   curly braces again for the `placeholder` and `ref` props. You will also want to write the inline function
+   on a single line. (Don't worry, it won't be too long)
+
+   Notice how much shorter the component is now and how much it resembles plain HTML.
 
 3. Refresh index.html in your browser.
 
@@ -100,9 +150,6 @@ So, they introduced a new syntax, called JSX, to make it better.
 
 At this point, we start the transition from a collection of HTML and JavaScript files,
 into an application in a more true sense of the word.
-
-** In addition to lines that start with `$`, lines that start with [DO] mean you
-should do what it is telling you. I'm marking them so you don't miss them. **
 
 
 1. Initialize the directory as an npm project.
