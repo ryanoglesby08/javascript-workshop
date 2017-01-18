@@ -1,51 +1,33 @@
-var postTweet = function(tweet) {
-  console.log(tweet);
-};
-
 var TweetBox = function(props) {
   var placeholder = props.placeholder;
-  var tweetInput;
 
-  var tweetText = React.createElement("textarea", {
-    placeholder: placeholder,
-    rows: 5,
-    cols: 60,
-    ref: function(textareaElement) {
-      tweetInput = textareaElement;
-    }
-  });
+  var handleClick = function() {
+    console.log([tweetText.value, tweetText]); // Does not work...
+    console.log(document.getElementById("tweetText").value); // Technically works, but no no!
+  };
+
+  var tweetText = React.createElement("textarea", {placeholder: placeholder, rows: 5, cols: 60, id: "tweetText"});
   var tweetButton = React.createElement("input", {
     type: "button",
     value: "Tweet",
-    onClick: function() {
-        postTweet(tweetInput.value);
-        tweetInput.value = "";
-    }
+    onClick: handleClick
   });
 
   return React.createElement("div", null, [tweetText, tweetButton]);
 };
+
 /*
-  1. add onClick handler to the button and create postTweet function. Here, we need to have access to the tweet text to post it.
-      - Can't use `tweetText.value` becuase `tweetText` is a React element and not an HTML input field
-      - Can show document.getElementById here and why we don't do that
-  2. Add the ref to textArea
-  3. Set the tweetBox back to empty after postTweet
+  Want to add some behavior to this component. Clicking the button should post the tweet to the console.
 
-    ref: React supports a special attribute that you can attach to any component. The ref attribute takes a callback function,
-     and the callback will be executed immediately after the component is mounted or unmounted.
-    - From the callback, we can get ahold of the actual DOM element being created and get/modify its attributes, such as value
-    - This is necessary because "tweetText" is a React element, NOT a <textarea> input field
-      (can demonstrate using console.log inside of the ref callback)
+  1. Create an empty function handleClick
+  2. Add it as a prop to tweetButton
+  3. How to access the value of the textarea.
+    - Try using `tweetText.value`. Can't becuase `tweetText` is a React element and not an HTML input field
+    - What about document.getElementById? Could work, but makes testing hard and violates core React principles.
 
-    - React refers to this pattern as an Uncontrolled Component
-    - Using ref is totally acceptable for something small like this, but the advice is not to overuse it.
-      It Tightly couples you to the DOM. We will see another way of doing this later.
-    - Share these:
-      https://facebook.github.io/react/docs/uncontrolled-components.html
-      https://facebook.github.io/react/docs/refs-and-the-dom.html
+  React has better ways. First, we are going to do an easy way.
 
-    ** "Warning: Each child in an array or iterator should have a unique "key" prop." -- ignore this for now **
+  --> Share TweetBox.js
 */
 
 /*
