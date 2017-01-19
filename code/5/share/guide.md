@@ -24,11 +24,12 @@ really just a collection of JavaScript files that happen to work together by rel
 on the presence of global variables.
 
 An app structured like this just won't scale.
-1) It is a hassle to add a <script> tag for every component we create and every
+
+1. It is a hassle to add a &lt;script&gt; tag for every component we create and every
   library we need. Also, each of script tags must make a request to the server to
   fetch the JavaScript file, which is not good for performance.
-2) We are not managing the versions of runtime libraries and depend on external CDNs.
-3) Everything is a global! There are no declared dependencies of modules. We rely
+2. We are not managing the versions of runtime libraries and depend on external CDNs.
+3. Everything is a global! There are no declared dependencies of modules. We rely
   on global variables. :(
 
 We need to introduce modularity and explicit dependency management into our app.
