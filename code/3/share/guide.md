@@ -195,7 +195,7 @@ into an application in a more true sense of the word.
   `$ cat node_modules/array-unique/index.js`
 
   Here is an example. The array-unique package has 1 file that returns an array
-  free of duplicate values. It is 28 lines long, included comments.
+  free of duplicate values. It is 28 lines long, including comments!
 
 3. Verify the Babel is installed and is executable.
 
@@ -305,10 +305,10 @@ into an application in a more true sense of the word.
 
 1. Create source code and compilation target directories.
 
-  `$ mkdir src`
-  `$ mv index.js src/`
-  `$ mv TweetBox.js src/`
-  `$ mkdir dist`
+  `$ mkdir src` <br/>
+  `$ mv index.js src/` <br/>
+  `$ mv TweetBox.js src/` <br/>
+  `$ mkdir dist` <br/>
 
   The "src" and "dist" directory names are conventional, but arbitrary.
 
@@ -332,7 +332,10 @@ into an application in a more true sense of the word.
 
   `$ npm run build`
 
-  You can run any configured script in your package.json with `npm run <command>`.
+  [DO] Open the index.js and TweetBox.js files in the "dist" folder and see the
+  syntax that Babel output. This is optimized JavaScript.
+
+  Note: You can run any configured script in your package.json with `npm run <command>`.
   Also, `npm run` will list out all the available scripts, including ones that come
   with npm.
 
