@@ -1,5 +1,5 @@
 module.exports = {
-  entry: '',
+  entry: './src/index.js',
   /*
     Entry - relative path to your application's entry point
 
@@ -12,8 +12,8 @@ module.exports = {
   */
 
   output: {
-    path: '',
-    filename: ''
+    path: './dist',
+    filename: 'application.bundle.js'
   },
   /*
     Output - relative path to the location of assembed application bundle
@@ -24,7 +24,7 @@ module.exports = {
 
   module: {
     loaders: [
-
+      {test: /\.js$/, loader: "babel-loader", exclude: /node_modules/}
     ]
   }
   /*
