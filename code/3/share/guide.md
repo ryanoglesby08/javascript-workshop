@@ -36,11 +36,11 @@ So, they introduced a new syntax, called JSX, to make it better.
 ## Part 1: Move to ECMAScript 6 (ES6)
 
 1. Extract the inlined JavaScript with the `ReactDOM.render` from index.html into
-    a new file called index.js.
+   a new file called index.js.
 
-   [DO] Include it with a <script> tag in index.html _after_ TweetBox.js.
+   [DO] Include it with a  tag in index.html _after_ TweetBox.js.
 
-   Here is what should be inside the <body> tag in index.html:
+   Here is what should be inside the &lt;body&gt; tag in index.html:
 
    ```html
    <div id="root"></div>
@@ -50,15 +50,18 @@ So, they introduced a new syntax, called JSX, to make it better.
    ```
 
 2. Rewrite index.js in valid ES6 syntax.
+
    ... nothing to do here! It is actually already in valid ES6. :)
 
 3. Rewrite TweetBox.js in valid ES6 syntax.
+
    * [DO] Replace all `var` declarations with `const`, except for `var tweetInput`.
      <https://babeljs.io/learn-es2015/#ecmascript-2015-features-let-const>
    * [DO] Replace `var tweetInput` with `let tweetInput`.
      <https://babeljs.io/learn-es2015/#ecmascript-2015-features-let-const>
    * [DO] Replace all `function` declarations with the arrow function syntax.
       for example:
+
       ```js
       // Instead of...
       var hello = function(name) {
@@ -76,12 +79,12 @@ So, they introduced a new syntax, called JSX, to make it better.
 
 4. Refresh index.html in your browser.
 
-   If you are using a modern browser, such as Google Chrome or Firefox, the app will
-    continue to work as before. The latest versions of all modern browsers have
-    support for ECMAScript 6. However, older browsers such as IE 11 and below do not.
+  If you are using a modern browser, such as Google Chrome or Firefox, the app will
+  continue to work as before. The latest versions of all modern browsers have
+  support for ECMAScript 6. However, older browsers such as IE 11 and below do not.
 
-   If something goes wrong, check the JavaScript console for errors. You most likely
-    have a syntax error.
+  If something goes wrong, check the JavaScript console for errors. You most likely
+  have a syntax error.
 
 
 ## Part 2: Move to JSX syntax
@@ -89,12 +92,12 @@ So, they introduced a new syntax, called JSX, to make it better.
 1. Rewrite index.js using JSX syntax.
 
    JSX is an preprocessor step that adds XML syntax to JavaScript to make writing
-    React Components easier, so the changes are minimal and only effect React Components.
-    Fundamentally, JSX provides syntactic sugar for `React.createElement`.
+   React Components easier, so the changes are minimal and only effect React Components.
+   Fundamentally, JSX provides syntactic sugar for `React.createElement`.
 
-   [DO] Change this:
-    `React.createElement(TweetBox, {placeholder: "What's happening?"})`
-   to this:
+   [DO] Change this: <br/>
+    `React.createElement(TweetBox, {placeholder: "What's happening?"})` <br/>
+   to this: <br/>
     `<TweetBox placeholder="What's happening?" />`
 
    Remember, the second parameter to `React.createElement` are the props, as a JavaScript
@@ -106,6 +109,7 @@ So, they introduced a new syntax, called JSX, to make it better.
 
    [DO] As always, you must return a single React element from your component. So start
    by returning a single div. Like this:
+
    ```js
     return (
       <div>
@@ -115,6 +119,7 @@ So, they introduced a new syntax, called JSX, to make it better.
 
    [DO] Now move the button element inside that div, using JSX syntax. Use curly braces
    to evaluate JavaScript as a prop value instead of a hard-coded string.
+
    ```js
     <input type="button" value="Tweet" onClick={handleClick} />
    ```
@@ -151,35 +156,35 @@ So, they introduced a new syntax, called JSX, to make it better.
 At this point, we start the transition from a collection of HTML and JavaScript files,
 into an application in a more true sense of the word.
 
-
 1. Initialize the directory as an npm project.
 
   `$ npm init` (in the root directory of your project)
 
   This command will help you interactively create a "package.json" file, which is
-   the npm standard file that describes your project or package.
+  the npm standard file that describes your project or package.
 
   [DO] Once its done, you will have a new file named package.json. Open it up to
-   see its structure.
+  see its structure.
 
   Once you are comfortable developing with JavaScript, this would be your first
-   step when starting a new project.
+  step when starting a new project.
 
 2. Install the Babel CLI as a dependency for this project.
 
   `$ npm install babel-cli --save-dev`
 
   The `npm install` command downloads a JavaScript package from a node package
-   repository into the "node_modules" directory of the current project.
+  repository into the "node_modules" directory of the current project.
+
   The `--save-dev` flag causes an entry to be added into the package.json file to
-   denote which packages are part of the project. There are two ways to mark dependencies
-   using npm. `--save` marks it as a runtime dependency, meaning it should be used
-   as part of the running application, such as a library for making API calls.
-   `--save-dev` marks it as a development dependency, meaning it should only be used
-   for development purposes such as testing or compilation.
+  denote which packages are part of the project. There are two ways to mark dependencies
+  using npm. `--save` marks it as a runtime dependency, meaning it should be used
+  as part of the running application, such as a library for making API calls.
+  `--save-dev` marks it as a development dependency, meaning it should only be used
+  for development purposes such as testing or compilation.
 
   [DO] Open package.json and notice the entry for `babel-cli` that is now present
-    in the "devDependencies" section.
+  in the "devDependencies" section.
 
   `$ ls node_modules/`
 
@@ -190,14 +195,14 @@ into an application in a more true sense of the word.
   `$ cat node_modules/array-unique/index.js`
 
   Here is an example. The array-unique package has 1 file that returns an array
-   free of duplicate values. It is 28 lines long, included comments.
+  free of duplicate values. It is 28 lines long, included comments.
 
 3. Verify the Babel is installed and is executable.
 
   `$ ./node_modules/.bin/babel --help`
 
   Any node module that has an executable file will automatically be installed into
-   `node_modules/.bin`.
+  `./node_modules/.bin`.
 
 4. Create a simple test file to illustrate Babel.
 
@@ -212,11 +217,11 @@ into an application in a more true sense of the word.
   ... and nothing happens!
 
   Babel, like many others, is a 3-stage compiler: parse, transform, and generate.
-   Transformations in Babel are architected as a plugin system. So, without any
-   plugins, Babel basically only does the parse and generate steps, making it a no-op.
+  Transformations in Babel are architected as a plugin system. So, without any
+  plugins, Babel basically only does the parse and generate steps, making it a no-op.
 
   Before Babel can be very useful to us, we will have to install some transformation
-   plugins, called presets, and configure Babel to use them.
+  plugins, called presets, and configure Babel to use them.
 
 
 ## Part 4: Configure Babel with ES6 preset
@@ -235,6 +240,7 @@ into an application in a more true sense of the word.
   `$ touch .babelrc`
 
   [DO] Edit the .babelrc file as follows: (It uses JSON syntax)
+
   ```json
   {
     "presets": ["latest"]
@@ -246,6 +252,7 @@ into an application in a more true sense of the word.
   `$ ./node_modules/.bin/babel test.js`
 
   You should see some output that looks like:
+
   ```js
   "use strict";
 
@@ -266,11 +273,11 @@ into an application in a more true sense of the word.
   `$ ./node_modules/.bin/babel index.js`
 
   BOOM! You should see a syntax error similar to what you saw in the browser before:
-   `SyntaxError: index.js: Unexpected token`
+  `SyntaxError: index.js: Unexpected token`
 
   The "latest" preset only includes standard ECMAScript syntax and features, but JSX
-   is not a standard part of the language. We will need to install and configure
-   another preset to add support for JSX.
+  is not a standard part of the language. We will need to install and configure
+  another preset to add support for JSX.
 
 2. Install the Babel React preset.
 
@@ -279,6 +286,7 @@ into an application in a more true sense of the word.
 3. Add the React preset to the Babel configuration file.
 
   [DO] Edit .babelrc
+
   ```json
   {
     "presets": ["latest", "react"]
@@ -290,7 +298,7 @@ into an application in a more true sense of the word.
   `$ ./node_modules/.bin/babel index.js`
 
   You should see output that looks suspiciously similar to the way we wrote it originally,
-   using `React.createElement`. The browser will be able to interpret `React.createElement`.
+  using `React.createElement`. The browser will be able to interpret `React.createElement`.
 
 
 ## Part 6: Set up a compilation step for the project.
@@ -318,7 +326,7 @@ into an application in a more true sense of the word.
   ```
 
   The "build" script will compile all JavaScript files in the "src" directory, and
-   output into the "dist" directory.
+  output into the "dist" directory.
 
 3. Compile source files
 
@@ -326,11 +334,11 @@ into an application in a more true sense of the word.
 
   You can run any configured script in your package.json with `npm run <command>`.
   Also, `npm run` will list out all the available scripts, including ones that come
-   with npm.
+  with npm.
 
 4. Edit index.html to point to the compiled files.
 
-  [DO] Here is what should be inside the <body> tag in index.html:
+  [DO] Here is what should be inside the &lt;body&gt; tag in index.html:
 
   ```html
   <div id="root"></div>
@@ -345,6 +353,7 @@ into an application in a more true sense of the word.
 
 
 ** Done! **
+
 Make a commit to save your progress!
 
 

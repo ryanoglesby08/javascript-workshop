@@ -52,7 +52,7 @@ We need webpack.
 2. Configure webpack for our application
 
   [DO] Download webpack.config.js from the same directory as this guide. Save it
-    in the root of your project.
+    in the root of your project. <br/>
   [DO] Read through the webpack config and the comments describing the 3 main parts
 
 3. Install the babel loader as a development dependency
@@ -187,6 +187,10 @@ statement.
   [DO] Delete any other files that may still be in the "dist" folder. All you need
   in "dist" now is application.bundle.js.
 
+  [DO] Add the dist folder to your .gitignore file. application.bundle.js is a
+  generated file, so you wouldn't check that into source control, similar to .class
+  files in a Java project.
+
 2. Refresh your browser!
 
 ## Part 4: Challenge! Extract postTweet as a separate module.
@@ -252,6 +256,7 @@ export const averageOf = (array) => {
 
 
 ** Done! **
+
 Make a commit to save your progress!
 
 
