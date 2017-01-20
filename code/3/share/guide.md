@@ -363,7 +363,8 @@ into an application in a more true sense of the word.
 
 ** Done! **
 
-Make a commit to save your progress!
+Make a commit to save your progress! You will want to git ignore node_modules
+and dist.
 
 
 ## Further Exploration:
