@@ -1,0 +1,18 @@
+Hi all,
+
+Glad you all will be joining the workshop on <DAY_OF_WEEK>! We will start at <TIME_AND_LOCATION>
+and it will take about 3.5-4 hours. The workshop is divided into 8 completely hands-on modules,
+with each one building on the previous, so coming and going won't really work out.
+Nor will just watching/working on other stuff during the workshop. Please plan on
+participating for the entire time.
+
+<INFO_FOR_REMOTE_JOINEES>
+
+<INFO_FOR_LUNCH>
+
+Set up:
+------------------
+* Have a text editor/IDE. (I will be using IntelliJ)
+* Install node.js. For Mac: `brew install node` or download from https://nodejs.org/en/. Version 6 or 7 is fine.
+* <INFO_FOR_CHAT_CHANNEL> We will use this during the workshop for general communication
+and sharing files and code snippets.

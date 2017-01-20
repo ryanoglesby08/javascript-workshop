@@ -6,7 +6,7 @@ You need:
   `$ node -v`   => v6.x.x or v7.x.x 
   `$ npm -v`    => v3.x.x or v4.x.x 
 * A web browser 
-  Chrome is preferred. If you have any “crazy” extensions, you may want to deactivate those. 
+  Chrome is preferred. Consider deactivating extensions.
 * A code editor
    IntelliJ, Atom, Sublime, vim. Whatever you like. :) 
 * To be comfortable running commands in the terminal
