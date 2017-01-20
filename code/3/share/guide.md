@@ -78,8 +78,8 @@ So, they introduced a new syntax, called JSX, to make it better.
    There is more we could do, but this is enough to give you a taste of the syntax.
 
    [DO] If using IntelliJ, configure IntelliJ to recognize ES6 syntax.
-        Command + "," to open up the settings menu
-        Choose Languages & Frameworks > JavaScript
+        Command + "," to open up the settings menu <br/>
+        Choose Languages & Frameworks > JavaScript <br/>
         Change "JavaScript language version" to "React JSX"
 
 
