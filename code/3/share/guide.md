@@ -80,7 +80,8 @@ So, they introduced a new syntax, called JSX, to make it better.
    [DO] If using IntelliJ, configure IntelliJ to recognize ES6 syntax. <br/>
         Command + "," to open up the settings menu <br/>
         Choose Languages & Frameworks > JavaScript <br/>
-        Change "JavaScript language version" to "React JSX"
+        Change "JavaScript language version" to "React JSX" (your IntelliJ version may show
+          "JSX Harmony" instead, they are the same)
 
 
 4. Refresh index.html in your browser.
@@ -136,7 +137,7 @@ So, they introduced a new syntax, called JSX, to make it better.
 
    Notice how much shorter the component is now and how much it resembles plain HTML.
 
-3. Refresh index.html in your browser.
+3. Refresh index.html in your browser. It won't work, keep reading, the error is expected. :)
 
    The app won't render anything, expectedly. Check the JavaScript console and you should see
     an error that looks like this: `Uncaught SyntaxError: Unexpected token <`
