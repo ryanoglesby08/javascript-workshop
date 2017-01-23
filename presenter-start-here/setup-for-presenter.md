@@ -15,7 +15,7 @@ Day of:
 5. Start remote session. Activate video recording if applicable.
 
 
-Next day:
+Next day/week:
 -------------
 
 1. Send follow up email

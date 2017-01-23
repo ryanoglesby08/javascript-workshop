@@ -1,0 +1,25 @@
+Hi all,
+
+Thank you for attending <DATE>. This email has some follow up material, and is a
+request for feedback. If you don't read any further, at least click reply and send me feedback. :)
+
+
+Feedback:
+-------------------------
+Please reply to me with any feedback you have on things you liked, and what I can
+do differently next time to be more effective. <SPECIFICS TO GUIDE FEEDBACK>
+
+Follow Up:
+-------------------------
+Here is the github repo again: https://github.com/ryanoglesby08/javascript-workshop.
+
+If you want to want to explore this tech more on your own, there is a lot more to do:
+* Features: General styling; Disable the Tweet button when the text is too long; Turn
+the character count red/green accordingly; Incorporate a simple backend api
+* Tech concerns: Testing with mocha, chai, and enzyme; source map support with webpack;
+eslint for syntax/style checking; Redux for state management; install/use the React
+Chrome extension
+
+Let me know if you have any more questions and please send feedback.
+
+Thanks!
