@@ -1,21 +1,19 @@
-Our First React Component
+Our First React components
 =================
 
-Reveal the need for ES6 and JSX by creating a simple React component.
+Reveal the need for ES6 and JSX by creating some simple React components.
 
 ## Presenter Flow
 
-1. Attendees create base TweetBox component from scratch. First is without props, ref, or click handler.
-2. Add placeholder as a prop
-3. Add ref, onClick, and post tweet to console.
+1. Attendees create base TweetBox component from scratch.
+2. Attendees create base Feed component from scratch.
+3. Attendees create base Tweeter component from scratch.
 
 ## Concepts
 
 * Functional React components
-* props as the core input of data to a component
-* refs and click handlers
+
 
 ## Resources
 
-* https://facebook.github.io/react/docs/uncontrolled-components.html
-* https://facebook.github.io/react/docs/refs-and-the-dom.html
+* 

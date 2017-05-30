@@ -14,38 +14,15 @@
     For now, we are going to do that right on this page in the simplest way possible.
   -->
   <script type="text/javascript">
-    var helloWorld = React.createElement("div", null, "Hello World");
-    // React.createElement(component|tag, props, children) --> Create and return a new React element, in memory, not rendered
-    // This is part of the special sauce, React has a clear separation between JS and the DOM, explicit about when DOM is modified
+    var helloWorldElement = React.createElement("div", null, "Hello World");
 
     ReactDOM.render(
-      helloWorld,
+      helloWorldElement,
       document.getElementById("root")
     );
-    // ReactDOM.render(component, container) --> Render a React element into the DOM in the supplied container
-    // If the React element was previously rendered into container, this will perform an update on it
-    //  and only mutate the DOM as necessary to reflect the latest React element. (performance and efficiency)
-
-    // Applications built with just React usually have a single root DOM node. If you are integrating React into an existing app,
-    //  you may have as many isolated root DOM nodes as you like.
-
-    // This will likely be the only time in a React app where you do document.getElementById()! :)
   </script>
 </body>
 </html>
-
-
-<!--
-  1. HTML skeleton - index-0.html
-  2. Hello world and `open index.html`
-    - `open` should open it up in your default browser. If not, `pwd`, copy and paste into browser url bar
-  3. React.createElement, then ReactDOM.render, then div#root
-  4. Add inline script tags
-  5. Why this first?
-
-  6. Review.
-  7. git init. git add. git commit.
--->
 
 <!--
   Why this?

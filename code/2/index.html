@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TWeets</title>
+  <title>TWeeter</title>
 
   <script type="text/javascript" src="https://unpkg.com/react/dist/react.min.js"></script>
   <script type="text/javascript" src="https://unpkg.com/react-dom/dist/react-dom.min.js"></script>
@@ -9,42 +9,14 @@
 <body>
   <div id="root"></div>
 
-  <script type="text/javascript" src="TweetBox-3.js"></script>
+  <script type="text/javascript" src="TweetBox.js"></script>
+  <script type="text/javascript" src="Feed.js"></script>
+  <script type="text/javascript" src="Tweeter.js"></script>
   <script type="text/javascript">
-    // 1
-    // ReactDOM.render(
-    //   React.createElement(TweetBox),
-    //   document.getElementById("root")
-    // );
-
-    // 2-3
     ReactDOM.render(
-      React.createElement(TweetBox, {placeholder: "What's happening?"}),
+      React.createElement(Tweeter),
       document.getElementById("root")
     );
   </script>
 </body>
 </html>
-
-<!--
-  0. TWeets title
-  1. Create TweetBox.js with the TweetBox component, no behavior
-  2. Switch to ReactDOM.render(React.createElement)
-  3. Pass the "placeholder" prop into the TweetBox to show props
-  4. Add behavior to the TweetBox, clicking "Tweet" will post the tweet to the console for now
-    - Share TweetBox.js
-  5. Review
-  6. git commit
--->
-
-<!--
-  Next: Now that we have a Component and a little behavior, we are seeing some downsides. Hard to discern the structure of
-    the components we are creating. A bit verbose. Not natural given that we are writing HTML.
-    Imagine if we had multiple nested elements!
-
-  On top of that, we are using vanilla JS, which means we can't use many modern language features.
-
-  React advices against writing apps like this for these reasons. And introduced a syntax to make this better.
-
-  So, enter ES6 + JSX + Babel.
--->

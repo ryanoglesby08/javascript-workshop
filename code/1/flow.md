@@ -33,7 +33,7 @@ open index.html
 Add React - library for building user interfaces.
 - http://unpkg.com (For getting npm packages easily)
 
-Write a hello world using React.createElement.
+Write a hello world using `React.createElement`.
 
 ```html
 <html>
