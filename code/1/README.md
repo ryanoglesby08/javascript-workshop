@@ -5,6 +5,8 @@ Establish core building blocks of HTML and React app.
 
 ## Presenter Flow
 
+__(see flow.md)__
+
 1. Attendees create index.html by hand
 2. Start with basic HTML hello world and open in browser
 3. Introduce React and add it
@@ -12,9 +14,9 @@ Establish core building blocks of HTML and React app.
 
 ## Concepts
 
-* React element vs React Component
+* React elements
 * ReactDOM and separation of JS and DOM manipulation
 
 ## Resources
 
-* https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
+* <https://unpkg.com>
