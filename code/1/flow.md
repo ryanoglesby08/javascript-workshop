@@ -28,7 +28,7 @@ Don't need a server yet. Web browser can just open any index.html file.
 open index.html
 ```
 
-## JavaScript and ES6
+## Add React
 
 Add React - library for building user interfaces.
 - http://unpkg.com (For getting npm packages easily)
@@ -50,12 +50,20 @@ Write a hello world using React.createElement.
   </body>
 </html>
 ```
+
+**You will NOT see anything render to the screen here!**
+
+`React.createElement` only creates a new React element in memory, and now you can do things with it. It does not get rendered to the screen until to explicitly tell it to.
+
 > React is decoupled from the DOM. This is the absolute core point of React. It uses a “virtual DOM”.
 
-Add React DOM - this is the part that actually deals with the DOM.
-Render component using ReactDOM.render
-—> This is why we can render to any target such as Native for phones.
--> This allows you to use React along side other technologies. This may work for a legacy app.
+## Add ReactDOM
+
+ReactDOM is the part that actually deals with the DOM. Render component using `ReactDOM.render`.
+
+Why separate React and ReactDOM?
+* Performance. React's virtual DOM is faster.
+* DOM is browser specific, by separating them we can run React on a server (rendering or testing), can render to a phone, etc.
 
 ```html
 <html>
@@ -86,5 +94,5 @@ This will likely be the only time in a React app where you do `document.getEleme
 
 ## Q & A
 
-Q: Why <script> tags in head and at bottom?
+Q: Why <script> tags in head and at bottom?<br/>
 A: In <head> blocks content from rendering, end of body does not. So we don't want anything else to happen until React is loaded, then we can execute the <script> tag in the body immediately.
