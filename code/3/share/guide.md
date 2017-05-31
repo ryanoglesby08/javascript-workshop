@@ -434,10 +434,10 @@ into an application in a more true sense of the word.
 
 ## Part 5: Compile our application files with Babel
 
-1. Try to compile index.js with Babel.
+1. Try to compile index.js with Babel. <br/>
    **YOU WILL SEE AN ERRROR, KEEP READING, THE ERROR IS EXPECTED. :)**
 
-  `$ ./node_modules/.bin/babel index.js`
+   `$ ./node_modules/.bin/babel index.js`
 
    BOOM! You should see a syntax error similar to what you saw in the browser before:
    `SyntaxError: index.js: Unexpected token`
@@ -500,18 +500,18 @@ into an application in a more true sense of the word.
 
 3. Compile source files
 
-  `$ npm run build`
+   `$ npm run build`
 
-  [DO] Open the index.js and TweetBox.js files in the "dist" folder and see the
-  syntax that Babel output. This is optimized JavaScript.
+   [DO] Open the index.js and TweetBox.js files in the "dist" folder and see the
+   syntax that Babel output. This is optimized JavaScript.
 
-  Note: You can run any configured script in your package.json with `npm run <command>`.
-  Also, `npm run` will list out all the available scripts, including ones that come
-  with npm.
+   Note: You can run any configured script in your package.json with `npm run <command>`.
+   Also, `npm run` will list out all the available scripts, including ones that come
+   with npm.
 
 4. Edit index.html to point to the compiled files.
 
-  [DO] Here is what should be inside the &lt;body&gt; tag in index.html:
+   [DO] Here is what should be inside the &lt;body&gt; tag in index.html:
 
    ```html
    <div id="root"></div>
@@ -524,10 +524,10 @@ into an application in a more true sense of the word.
 
 5. Refresh index.html in your browser.
 
-  The app should be back to working again.
+   The app should be back to working again.
 
 
-** Done! **
+## Done!
 
 Make a commit to save your progress! You will want to git ignore node_modules
 and dist.
