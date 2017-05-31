@@ -390,107 +390,113 @@ into an application in a more true sense of the word.
 
 ## Part 4: Configure Babel with ES6 preset
 
-1. Install the "latest" preset.
+1. Install the "env" preset.
 
-  `$ npm install babel-preset-latest --save-dev`
+   `$ npm install babel-preset-env --save-dev`
 
-  "latest" means to give me all the latest yearly language updates. Notice we do `--save-dev`
-   again because a Babel preset is a development dependency.
+   The "env" preset can configure Babel to transform JavaScript for a specified 
+   environment. 
+   
+   Notice we do `--save-dev`again because a Babel preset is a development dependency.
 
-  This will only download the node module, and now we need to tell Babel to use it.
+   This will only download the node module, and now we need to tell Babel to use it.
 
 2. Create a Babel configuration file.
 
-  `$ touch .babelrc`
+   `$ touch .babelrc`
 
-  [DO] Edit the .babelrc file as follows: (It uses JSON syntax)
+   [DO] Edit the .babelrc file as follows: (It uses JSON syntax)
 
-  ```json
-  {
-    "presets": ["latest"]
-  }
-  ```
+   ```json
+   {
+     "presets": ["env"]
+   }
+   ```
 
 3. Try again at compiling the test file.
 
-  `$ ./node_modules/.bin/babel test.js`
+   `$ ./node_modules/.bin/babel test.js`
 
-  You should see some output that looks like:
+   You should see some output that looks like:
 
-  ```js
-  "use strict";
+   ```js
+   "use strict";
 
-  [1, 2, 3].map(function (n) {
+   [1, 2, 3].map(function (n) {
     return n + 1;
-  });
-  ```
+   });
+   ```
 
-  It worked! The arrow function was compiled into the more verbose "function" syntax.
+   It worked! The arrow function was compiled into the more verbose "function" syntax.
 
-  `$ rm test.js` (We won't need it anymore)
+   `$ rm test.js` (We won't need it anymore)
 
 
 ## Part 5: Compile our application files with Babel
 
 1. Try to compile index.js with Babel.
+   **YOU WILL SEE AN ERRROR, KEEP READING, THE ERROR IS EXPECTED. :)**
 
   `$ ./node_modules/.bin/babel index.js`
 
-  BOOM! You should see a syntax error similar to what you saw in the browser before:
-  `SyntaxError: index.js: Unexpected token`
+   BOOM! You should see a syntax error similar to what you saw in the browser before:
+   `SyntaxError: index.js: Unexpected token`
 
-  The "latest" preset only includes standard ECMAScript syntax and features, but JSX
-  is not a standard part of the language. We will need to install and configure
-  another preset to add support for JSX.
+   The "env" preset only includes standard ECMAScript syntax and features, but JSX
+   is not a standard part of the language. We will need to install and configure
+   another preset to add support for JSX.
 
 2. Install the Babel React preset.
 
-  `$ npm install babel-preset-react --save-dev`
+   `$ npm install babel-preset-react --save-dev`
 
 3. Add the React preset to the Babel configuration file.
 
-  [DO] Edit .babelrc
+   [DO] Edit .babelrc to add "react" to the list of presets
 
-  ```json
-  {
-    "presets": ["latest", "react"]
-  }
-  ```
+   ```json
+   {
+    "presets": ["env", "react"]
+   }
+   ```
 
 4. Compile index.js with Babel.
 
-  `$ ./node_modules/.bin/babel index.js`
-
-  You should see output that looks suspiciously similar to the way we wrote it originally,
-  using `React.createElement`. The browser will be able to interpret `React.createElement`.
+   `$ ./node_modules/.bin/babel index.js`
+   
+   As you can see, the JSX syntax simply is transformed back into `React.createElement`, which
+   is something the browser will be able to interpret.
+   
+   [DO] Try running Babel on the other JavaScript files and view the output.
 
 
 ## Part 6: Set up a compilation step for the project.
 
 1. Create source code and compilation target directories.
 
-  `$ mkdir src` <br/>
-  `$ mv index.js src/` <br/>
-  `$ mv TweetBox.js src/` <br/>
-  `$ mkdir dist` <br/>
+   ```sh
+   $ mkdir src
+   $ mv *.js src/
+   $ mkdir dist
+   ```
 
-  The "src" and "dist" directory names are conventional, but arbitrary.
+   The "src" and "dist" directory names are conventional, but arbitrary.
 
-  We will leave index.html in the root of the project.
+   We will leave index.html in the project root.
 
-2. Create an npm script for compilation.
+2. Create an npm script to do Babel compilation.
 
-  [DO] Edit your package.json to add a script.
+   [DO] Edit your package.json to add a script.
 
-  ```json
-  "scripts": {
+   ```json
+   "scripts": {
     "build": "babel src/ -d dist/",
     "test": "echo \"Error: no test specified\" && exit 1"
-  }
-  ```
+   }
+   ```
 
-  The "build" script will compile all JavaScript files in the "src" directory, and
-  output into the "dist" directory.
+   The "build" script will compile all JavaScript files in the "src" directory, and
+   output into the "dist" directory.
 
 3. Compile source files
 
@@ -507,12 +513,14 @@ into an application in a more true sense of the word.
 
   [DO] Here is what should be inside the &lt;body&gt; tag in index.html:
 
-  ```html
-  <div id="root"></div>
+   ```html
+   <div id="root"></div>
 
-  <script type="text/javascript" src="dist/TweetBox.js"></script>
-  <script type="text/javascript" src="dist/index.js"></script>
-  ```
+   <script type="text/javascript" src="dist/TweetBox.js"></script>
+   <script type="text/javascript" src="dist/Feed.js"></script>
+   <script type="text/javascript" src="dist/Tweeter.js"></script>
+   <script type="text/javascript" src="dist/index.js"></script>
+   ```
 
 5. Refresh index.html in your browser.
 
