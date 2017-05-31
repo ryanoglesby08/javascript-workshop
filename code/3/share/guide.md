@@ -16,29 +16,49 @@ In addition to lines that start with `$`, lines that start with [DO] mean you
 should do what it is telling you. I'm marking them so you don't miss them.
 
 
-## Preface
+## Motivation
 
-Now that we have a Component and a little behavior, we can realize some downsides.
+Now that we have some components and a little behavior, we can see some downsides.
 
 For one, it is difficult to visualize the HTML structure of the components that we
 are creating. The `React.createElement` syntax is pretty verbose, and does not feel
-natural given that we basically writing HTML. Imagine if we had multiple components
-and multiple nested elements. It gets out of hand pretty quickly.
+natural given that we basically writing HTML. Imagine if we had many components
+containing many nested elements. It gets out of hand pretty quickly.
 
-On top of that, we are using vanilla JavaScript, which means we may have a hard time
-using many modern language features, because we will likely run into browser
-compatibility issues.
+**Because of these deficiencies, Facebook advices against using `React.createElement`
+directly, so they introduced a new syntax, called JSX.**
 
-Facebook (React) advices against writing apps in this way for these reasons and more.
-So, they introduced a new syntax, called JSX, to make it better.
+On top of that, we are currently writing our JavaScript using the ECMAScript 5
+syntax. ECMAScript is the official specification for the JavaScript programming
+language that every JavaScript runtime environment (Web browsers, servers, IOT devices)
+must implement. ECMAScript 6 (ES6) (also called ES2015 for the year it was released)
+marked a major milestone for JavaScript, defining a number of new APIs and syntax. [1]
+If we want to write expressive, modern JavaScript, we must write our code to target
+at least ES6.
+
+But, as each Web browser and device is maintained separately, each one adopts
+new language features at different times. So, if you just write your JavaScript
+using the latest language features, you are likely to run into compatibility issues,
+especially if your Web site will be used by people with older browsers, such as
+Internet Explorer 11. And, if you are using powerful, bleeding-edge features it is
+likely that no browsers will support it yet.
+
+This discrepancy between the JavaScript features that we want to use, and the ones
+that are supported by Web browsers is the core motivation for this module. By
+introducing a compilation step, we will ensure that the ES6+ code that we write
+will be compatible with any Web browser in use.
+
+
+[1] _As of May 2017, the ES spec is currently reviewing proposals for the 8th
+edition._
 
 
 ## Part 1: Move to ECMAScript 6 (ES6)
 
-1. Extract the inlined JavaScript with the `ReactDOM.render` from index.html into
+1. [DO] Extract the inlined JavaScript with the `ReactDOM.render` from index.html into
    a new file called index.js.
 
-   [DO] Include it with a  tag in index.html _after_ TweetBox.js.
+   [DO] Include it with a <script> tag in index.html _after_ all the components.
 
    Here is what should be inside the &lt;body&gt; tag in index.html:
 
@@ -46,25 +66,26 @@ So, they introduced a new syntax, called JSX, to make it better.
    <div id="root"></div>
 
    <script type="text/javascript" src="TweetBox.js"></script>
+   <script type="text/javascript" src="Feed.js"></script>
+   <script type="text/javascript" src="Tweeter.js"></script>
    <script type="text/javascript" src="index.js"></script>
    ```
 
-2. Rewrite index.js in valid ES6 syntax.
+2. Rewrite index.js using ES6 syntax.
 
    ... nothing to do here! It is actually already in valid ES6. :)
 
-3. Rewrite TweetBox.js in valid ES6 syntax.
+3. Rewrite TweetBox.js using ES6 syntax.
 
-   * [DO] Replace all `var` declarations with `const`, except for `var tweetInput`.
-     <https://babeljs.io/learn-es2015/#ecmascript-2015-features-let-const>
-   * [DO] Replace `var tweetInput` with `let tweetInput`.
+   * [DO] Replace all `var` declarations with `const`.
      <https://babeljs.io/learn-es2015/#ecmascript-2015-features-let-const>
    * [DO] Replace all `function` declarations with the arrow function syntax.
-      for example:
+
+      For example:
 
       ```js
       // Instead of...
-      var hello = function(name) {
+      const hello = function(name) {
         return "Hello " + name;
       };
 
@@ -73,16 +94,13 @@ So, they introduced a new syntax, called JSX, to make it better.
         return "Hello " + name;
       };
       ```
-     <https://babeljs.io/learn-es2015/#ecmascript-2015-features-arrows-and-lexical-this>
-
-   There is more we could do, but this is enough to give you a taste of the syntax.
+     <http://es6-features.org/#StatementBodies>
 
    [DO] If using IntelliJ, configure IntelliJ to recognize ES6 syntax. <br/>
         Command + "," to open up the settings menu <br/>
         Choose Languages & Frameworks > JavaScript <br/>
-        Change "JavaScript language version" to "React JSX" (your IntelliJ version may show
-          "JSX Harmony" instead, they are the same)
-
+        Change "JavaScript language version" to "React JSX" (your IntelliJ version
+          may show "JSX Harmony" instead, they are the same)
 
 4. Refresh index.html in your browser.
 
@@ -93,24 +111,77 @@ So, they introduced a new syntax, called JSX, to make it better.
   If something goes wrong, check the JavaScript console for errors. You most likely
   have a syntax error.
 
+5. Rewrite Feed.js using ES6 syntax.
+
+  * [DO] Replace all `var` declarations with `const`.
+  * [DO] Replace all `function` declarations with the arrow function syntax.
+  * [DO] Use destructing to extract a named key from the "props" argument.
+
+    For example:
+
+    ```js
+    // Instead of...
+    const Hello = function(props) {
+      return "Hello " + props.name;
+    };
+
+    // use this.
+    const hello = ({name}) => {
+      return "Hello " + name;
+    };
+    ```
+    <http://es6-features.org/#ParameterContextMatching>
+
+6. Refresh index.html in your browser and make sure there are no errors.
+
+7. Rewrite Tweeter.js using ES6 syntax.
+
+  * [DO] Replace all `var` declarations with `const`.
+  * [DO] Replace all `function` declarations with the arrow function syntax.
+  * [DO] The `Tweeter` function is only a return statement, so there is a shorthand for that.
+
+    For example:
+
+    ```js
+    // Instead of...
+    const hello = ({name}) => {
+      return "Hello " + name;
+    };
+
+    // use this.
+    const hello = ({name}) => (
+      "Hello " + name;
+    );
+
+    // or this, depending on readability and your preferences
+    const hello = ({name}) => "Hello " + name;
+    ```
+    <http://es6-features.org/#ExpressionBodies>
+
+
+8. Refresh index.html in your browser and make sure there are no errors.
+
 
 ## Part 2: Move to JSX syntax
 
+JSX is an preprocessor step that adds XML syntax to JavaScript to make writing
+React Components easier, so the changes are minimal and only effect React Components.
+**Fundamentally, JSX provides syntactic sugar for `React.createElement`.**
+
 1. Rewrite index.js using JSX syntax.
 
-   JSX is an preprocessor step that adds XML syntax to JavaScript to make writing
-   React Components easier, so the changes are minimal and only effect React Components.
-   Fundamentally, JSX provides syntactic sugar for `React.createElement`.
+   [DO] Change this:
+    ```js
+    React.createElement(Tweeter)
+    ```
 
-   [DO] Change this: <br/>
-    `React.createElement(TweetBox, {placeholder: "What's happening?"})` <br/>
-   to this: <br/>
-    `<TweetBox placeholder="What's happening?" />`
+   to this:
+   ```js
+   <Tweeter />
+   ```
 
-   Remember, the second parameter to `React.createElement` are the props, as a JavaScript
-   object, that get passed into the component. In JSX syntax, we specify those props
-   using a syntax similar to HTML attributes. So, the syntax for JSX is basically:
-   `<ComponentName prop1="value1" prop2="value2" />`.
+   Remember, the 1st parameter to `React.createElement` is the component or tag name.
+   We are still telling React to create a React element for the `Tweeter` component.
 
 2. Rewrite TweetBox.js using JSX syntax.
 
@@ -124,38 +195,117 @@ So, they introduced a new syntax, called JSX, to make it better.
     );
    ```
 
-   [DO] Now move the button element inside that div, using JSX syntax. Use curly braces
-   to evaluate JavaScript as a prop value instead of a hard-coded string.
+   [DO] Now move the button element inside that div, using JSX syntax.
 
    ```js
-    <input type="button" value="Tweet" onClick={handleClick} />
+    <input type="button" value="Tweet" />
    ```
 
-   [DO] Finally, move the textarea element inside the div, using JSX syntax. Use
-   curly braces again for the `placeholder` and `ref` props. You will also want to write the inline function
-   on a single line. (Don't worry, it won't be too long)
+   Remember, the 2nd parameter to `React.createElement` is the props, as a JavaScript
+   object, that get passed into the component. In JSX, we specify those props
+   using a syntax similar to HTML attributes. So, the syntax for JSX is basically:
+   `<ComponentName prop1="value1" prop2="value2" ... />`.
 
-   Notice how much shorter the component is now and how much it resembles plain HTML.
+   [DO] Finally, move the textarea element inside the div too, using JSX syntax.
 
-3. Refresh index.html in your browser. It won't work, keep reading, the error is expected. :)
+   ```js
+    <textarea placeholder="What's happening?" rows="5" cols="60" />
+   ```
+
+   [DO] Now the `TweetBox` component consists of a single return statement. Use the
+   shorthand syntax as we did in Part 1, Step 7.
+
+   Here is the completed `TweetBox` component:
+
+   ```js
+   const TweetBox = (props) => (
+     <div>
+       <textarea rows="5" cols="60" placeholder="What's happening?" />
+       <input type="button" value="Tweet" />
+     </div>
+   );
+   ```
+
+   Notice how much shorter the component is now and how much it resembles plain HTML!
+
+3. Rewrite Feed.js using JSX syntax.
+
+  [DO] You can interpolate JavaScript variables as text by using curly braces.
+
+  For example:
+
+  ```js
+  // this
+  const Hello = ({name}) => React.createElement("span", null, name);
+
+  // becomes this in JSX
+  const Hello = ({name}) => <span>{name}</span>;
+  ```
+
+  A finished `Feed` component will look like this:
+
+  ```js
+  const Feed = ({tweets}) => (
+    <ul>
+      {tweets.map((tweet) => <li>{tweet}</li>)}
+    </ul>
+  );
+  ```
+
+4. Rewrite Tweeter.js using JSX syntax.
+
+  When passing a JavaScript variable into another JSX component as a prop, use curly
+  braces again.
+
+  For example:
+
+  ```js
+  // given this Hello component...
+  const Hello = ({name}) => <span>{name}</span>;
+
+  // this
+  const sayHiToMe = "Rebecca";
+  React.createElement(Hello, {name: sayHiToMe});
+
+  // becomes this
+  const sayHiToMe = "Rebecca";
+  <Hello name={sayHiToMe} />
+  ```
+
+  A finished `Tweeter` component will look like this:
+
+  ```js
+  const tweets = ["Hello I'm a tweet.", "Good morning"];
+
+  const Tweeter = (props) => (
+    <div>
+      <TweetBox />
+      <Feed tweets={tweets} />
+    </div>
+  );
+  ```
+
+5. Refresh index.html in your browser. **YOU WILL SEE AN ERRROR, KEEP READING, THE ERROR IS EXPECTED. :)**
 
    The app won't render anything, expectedly. Check the JavaScript console and you should see
-    an error that looks like this: `Uncaught SyntaxError: Unexpected token <`
+   errors that looks like this: `Uncaught SyntaxError: Unexpected token <`
 
-   This is because JSX is a preprocessor step, and is not supported by any major
-    browser at this time.
+   This is because JSX is not an official part of JavaScript. It is a preprocessor
+   step, and is not supported by any major browser at this time.
 
    This doubly reveals the need for a build step in our JavaScript application.
-    First, now that we are writing our JavaScript using modern ES6 features, we lose support
-    for the many older browsers that remain in use. Furthermore, as the ECMAScript
-    standard advances, we will want to use new features as they become available, before
-    any browsers support them (such as Object Rest/Spread, which becomes very useful
-    in React apps).
-    Second, now that we are writing our React components using JSX syntax, while
-    gaining a friendly syntax, we lose support for all browsers.
 
-   The solution in the JavaScript community is to introduce a build step that will
-    compile your modern JavaScript into JavaScript that can be run by any browser.
+   First, now that we are writing our JavaScript using modern ES6 features, we lose support
+   for the many older browsers that remain in use. Furthermore, as the ECMAScript
+   standard advances, we will want to use new features as they become available, before
+   any browsers support them (such as Object Rest/Spread, which becomes very useful
+   in React apps).
+
+   Second, now that we are writing our React components using JSX syntax, while
+   gaining a much friendlier syntax, we lose support for all browsers.
+
+   The solution is to introduce a build step that will compile your modern JavaScript
+   into JavaScript that can be run by any browser.
 
 
 ## Part 3: Get Started with Babel

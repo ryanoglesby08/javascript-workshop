@@ -1,4 +1,4 @@
 ReactDOM.render(
-  <Tweeter />,
+  <TweetBox placeholder="What's happening?" />,
   document.getElementById("root")
 );

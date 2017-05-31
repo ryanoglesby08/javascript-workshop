@@ -69,10 +69,10 @@ Pass the list of tweets into `Feed` here as the `tweets` prop.
 Now that we have some components, there are some obvious downsides here.
 
 1. We are using comments in our components to help us imagine their structure. `React.createElement` is pretty verbose and a bit unnatural.
-2. We are writing vanilla JS, which means we can't use many modern language features.
+2. We are writing "vanilla JS", which means we can't use many modern language features.
 
 (There are other downsides, but these are the first ones we will focus on.)
 
 React advices against writing apps like this for these reasons. And introduced a syntax to make this better.
 
-So, next section introduces ES6, JSX, & Babel.
+So, next section introduces a newer version of the JS language, called ES6, & JSX, & Babel.

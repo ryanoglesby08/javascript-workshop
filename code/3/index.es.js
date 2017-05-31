@@ -1,4 +1,4 @@
 ReactDOM.render(
-  <Tweeter />,
+  React.createElement(Tweeter),
   document.getElementById("root")
 );
