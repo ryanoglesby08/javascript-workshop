@@ -55,10 +55,10 @@ edition._
 
 ## Part 1: Move to ECMAScript 6 (ES6)
 
-1. [DO] Extract the inlined JavaScript with the `ReactDOM.render` from index.html into
+1. Extract the inlined JavaScript with the `ReactDOM.render` from index.html into
    a new file called index.js.
 
-   [DO] Include it with a <script> tag in index.html _after_ all the components.
+   [DO] Include it with a \<script\> tag in index.html _after_ all the components.
 
    Here is what should be inside the &lt;body&gt; tag in index.html:
 
