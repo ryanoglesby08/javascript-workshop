@@ -77,9 +77,10 @@ edition._
 
 3. Rewrite TweetBox.js using ES6 syntax.
 
-   * [DO] Replace all `var` declarations with `const`.
-     <https://babeljs.io/learn-es2015/#ecmascript-2015-features-let-const>
-   * [DO] Replace all `function` declarations with the arrow function syntax.
+   [DO] Replace all `var` declarations with `const`. <br/>
+   <https://babeljs.io/learn-es2015/#ecmascript-2015-features-let-const>
+     
+   [DO] Replace all `function` declarations with the arrow function syntax.
 
       For example:
 
@@ -96,11 +97,12 @@ edition._
       ```
      <http://es6-features.org/#StatementBodies>
 
-   [DO] If using IntelliJ, configure IntelliJ to recognize ES6 syntax. <br/>
-        Command + "," to open up the settings menu <br/>
-        Choose Languages & Frameworks > JavaScript <br/>
-        Change "JavaScript language version" to "React JSX" (your IntelliJ version
-          may show "JSX Harmony" instead, they are the same)
+   [DO] If using IntelliJ, configure IntelliJ to recognize ES6 syntax.
+   
+      * Command + "," to open up the settings menu.
+      * Choose Languages & Frameworks > JavaScript.
+      * Change "JavaScript language version" to "React JSX" (your IntelliJ version 
+      may show "JSX Harmony" instead, they are the same).
 
 4. Refresh index.html in your browser.
 
@@ -113,9 +115,11 @@ edition._
 
 5. Rewrite Feed.js using ES6 syntax.
 
-  * [DO] Replace all `var` declarations with `const`.
-  * [DO] Replace all `function` declarations with the arrow function syntax.
-  * [DO] Use destructing to extract a named key from the "props" argument.
+  [DO] Replace all `var` declarations with `const`.
+  
+  [DO] Replace all `function` declarations with the arrow function syntax.
+  
+  [DO] Use destructing to extract a named key from the "props" argument.
 
     For example:
 
@@ -136,9 +140,11 @@ edition._
 
 7. Rewrite Tweeter.js using ES6 syntax.
 
-  * [DO] Replace all `var` declarations with `const`.
-  * [DO] Replace all `function` declarations with the arrow function syntax.
-  * [DO] The `Tweeter` function is only a return statement, so there is a shorthand for that.
+  [DO] Replace all `var` declarations with `const`.
+  
+  [DO] Replace all `function` declarations with the arrow function syntax.
+  
+  [DO] The `Tweeter` function is only a return statement, so there is a shorthand for that.
 
     For example:
 
