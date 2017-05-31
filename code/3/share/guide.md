@@ -106,12 +106,12 @@ edition._
 
 4. Refresh index.html in your browser.
 
-  If you are using a modern browser, such as Google Chrome or Firefox, the app will
-  continue to work as before. The latest versions of all modern browsers have
-  support for ECMAScript 6. However, older browsers such as IE 11 and below do not.
-
-  If something goes wrong, check the JavaScript console for errors. You most likely
-  have a syntax error.
+   If you are using a modern browser, such as Google Chrome or Firefox, the app will
+   continue to work as before. The latest versions of all modern browsers have
+   support for ECMAScript 6. However, older browsers such as IE 11 and below do not.
+   
+   If something goes wrong, check the JavaScript console for errors. You most likely
+   have a syntax error.
 
 5. Rewrite Feed.js using ES6 syntax.
 
