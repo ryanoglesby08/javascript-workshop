@@ -58,7 +58,7 @@ edition._
 1. Extract the inlined JavaScript with the `ReactDOM.render` from index.html into
    a new file called index.js.
 
-   [DO] Include it with a \<script\> tag in index.html _after_ all the components.
+   [DO] Include it with a &lt;script&gt; tag in index.html _after_ all the components.
 
    Here is what should be inside the &lt;body&gt; tag in index.html:
 
@@ -81,21 +81,21 @@ edition._
    <https://babeljs.io/learn-es2015/#ecmascript-2015-features-let-const>
      
    [DO] Replace all `function` declarations with the arrow function syntax.
+   
+   For example:
 
-      For example:
+   ```js
+   // Instead of...
+   const hello = function(name) {
+     return "Hello " + name;
+   };
 
-      ```js
-      // Instead of...
-      const hello = function(name) {
-        return "Hello " + name;
-      };
-
-      // use this.
-      const hello = (name) => {
-        return "Hello " + name;
-      };
-      ```
-     <http://es6-features.org/#StatementBodies>
+   // use this.
+   const hello = (name) => {
+     return "Hello " + name;
+   };
+   ```
+   <http://es6-features.org/#StatementBodies>
 
    [DO] If using IntelliJ, configure IntelliJ to recognize ES6 syntax.
    
@@ -115,11 +115,11 @@ edition._
 
 5. Rewrite Feed.js using ES6 syntax.
 
-  [DO] Replace all `var` declarations with `const`.
-  
-  [DO] Replace all `function` declarations with the arrow function syntax.
-  
-  [DO] Use destructing to extract a named key from the "props" argument.
+   [DO] Replace all `var` declarations with `const`.
+   
+   [DO] Replace all `function` declarations with the arrow function syntax.
+   
+   [DO] Use destructing to extract a named key from the "props" argument.
 
     For example:
 
