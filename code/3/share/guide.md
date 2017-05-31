@@ -140,29 +140,29 @@ edition._
 
 7. Rewrite Tweeter.js using ES6 syntax.
 
-  [DO] Replace all `var` declarations with `const`.
-  
-  [DO] Replace all `function` declarations with the arrow function syntax.
-  
-  [DO] The `Tweeter` function is only a return statement, so there is a shorthand for that.
+   [DO] Replace all `var` declarations with `const`.
+   
+   [DO] Replace all `function` declarations with the arrow function syntax.
+   
+   [DO] The `Tweeter` function is only a return statement, so there is a shorthand for that.
 
-    For example:
+   For example:
 
-    ```js
-    // Instead of...
-    const hello = ({name}) => {
+   ```js
+   // Instead of...
+   const hello = ({name}) => {
       return "Hello " + name;
-    };
+   };
 
-    // use this.
-    const hello = ({name}) => (
+   // use this.
+   const hello = ({name}) => (
       "Hello " + name;
-    );
+   );
 
-    // or this, depending on readability and your preferences
-    const hello = ({name}) => "Hello " + name;
-    ```
-    <http://es6-features.org/#ExpressionBodies>
+   // or this, depending on readability and your preferences
+   const hello = ({name}) => "Hello " + name;
+   ```
+   <http://es6-features.org/#ExpressionBodies>
 
 
 8. Refresh index.html in your browser and make sure there are no errors.
@@ -236,49 +236,49 @@ React Components easier, so the changes are minimal and only effect React Compon
 
 3. Rewrite Feed.js using JSX syntax.
 
-  [DO] You can interpolate JavaScript variables as text by using curly braces.
+   [DO] You can interpolate JavaScript variables as text by using curly braces.
+   
+   For example:
 
-  For example:
+   ```js
+   // this
+   const Hello = ({name}) => React.createElement("span", null, name);
 
-  ```js
-  // this
-  const Hello = ({name}) => React.createElement("span", null, name);
+   // becomes this in JSX
+   const Hello = ({name}) => <span>{name}</span>;
+   ```
 
-  // becomes this in JSX
-  const Hello = ({name}) => <span>{name}</span>;
-  ```
+   A finished `Feed` component will look like this:
 
-  A finished `Feed` component will look like this:
-
-  ```js
-  const Feed = ({tweets}) => (
-    <ul>
-      {tweets.map((tweet) => <li>{tweet}</li>)}
-    </ul>
-  );
-  ```
+   ```js
+   const Feed = ({tweets}) => (
+     <ul>
+       {tweets.map((tweet) => <li>{tweet}</li>)}
+     </ul>
+   );
+   ```
 
 4. Rewrite Tweeter.js using JSX syntax.
 
-  When passing a JavaScript variable into another JSX component as a prop, use curly
-  braces again.
+   When passing a JavaScript variable into another JSX component as a prop, use curly
+   braces again.
+   
+   For example:
 
-  For example:
+   ```js
+   // given this Hello component...
+   const Hello = ({name}) => <span>{name}</span>;
 
-  ```js
-  // given this Hello component...
-  const Hello = ({name}) => <span>{name}</span>;
+   // this
+   const sayHiToMe = "Rebecca";
+   React.createElement(Hello, {name: sayHiToMe});
 
-  // this
-  const sayHiToMe = "Rebecca";
-  React.createElement(Hello, {name: sayHiToMe});
+   // becomes this
+   const sayHiToMe = "Rebecca";
+   <Hello name={sayHiToMe} />
+   ```
 
-  // becomes this
-  const sayHiToMe = "Rebecca";
-  <Hello name={sayHiToMe} />
-  ```
-
-  A finished `Tweeter` component will look like this:
+   A finished `Tweeter` component will look like this:
 
   ```js
   const tweets = ["Hello I'm a tweet.", "Good morning"];
@@ -291,7 +291,8 @@ React Components easier, so the changes are minimal and only effect React Compon
   );
   ```
 
-5. Refresh index.html in your browser. **YOU WILL SEE AN ERRROR, KEEP READING, THE ERROR IS EXPECTED. :)**
+5. Refresh index.html in your browser. <br/>
+   **YOU WILL SEE AN ERRROR, KEEP READING, THE ERROR IS EXPECTED. :)**
 
    The app won't render anything, expectedly. Check the JavaScript console and you should see
    errors that looks like this: `Uncaught SyntaxError: Unexpected token <`
@@ -321,70 +322,70 @@ into an application in a more true sense of the word.
 
 1. Initialize the directory as an npm project.
 
-  `$ npm init` (in the root directory of your project)
+   `$ npm init` (in the root directory of your project)
 
-  This command will help you interactively create a "package.json" file, which is
-  the npm standard file that describes your project or package.
+   This command will help you interactively create a "package.json" file, which is
+   the npm standard file that describes your project or package.
 
-  [DO] Once its done, you will have a new file named package.json. Open it up to
-  see its structure.
+   [DO] Once its done, you will have a new file named package.json. Open it up to
+   see its structure.
 
-  Once you are comfortable developing with JavaScript, this would be your first
-  step when starting a new project.
+   Once you are comfortable developing with JavaScript, this would be your first
+   step when starting a new project.
 
 2. Install the Babel CLI as a dependency for this project.
 
-  `$ npm install babel-cli --save-dev`
+   `$ npm install babel-cli --save-dev`
 
-  The `npm install` command downloads a JavaScript package from a node package
-  repository into the "node_modules" directory of the current project.
+   The `npm install` command downloads a JavaScript package from a node package
+   repository into the "node_modules" directory of the current project.
 
-  The `--save-dev` flag causes an entry to be added into the package.json file to
-  denote which packages are part of the project. There are two ways to mark dependencies
-  using npm. `--save` marks it as a runtime dependency, meaning it should be used
-  as part of the running application, such as a library for making API calls.
-  `--save-dev` marks it as a development dependency, meaning it should only be used
-  for development purposes such as testing or compilation.
+   The `--save-dev` flag causes an entry to be added into the package.json file to
+   denote which packages are part of the project. There are two ways to mark dependencies
+   using npm. `--save` marks it as a runtime dependency, meaning it should be used
+   as part of the running application, such as a library for making API calls.
+   `--save-dev` marks it as a development dependency, meaning it should only be used
+   for development purposes such as testing or compilation.
 
-  [DO] Open package.json and notice the entry for `babel-cli` that is now present
-  in the "devDependencies" section.
+   [DO] Open package.json and notice the entry for `babel-cli` that is now present
+   in the "devDependencies" section.
 
-  `$ ls node_modules/`
+   `$ ls node_modules/`
 
-  Notice that many dependencies were downloaded along with Babel. These are all of
-  Babel's dependencies. The JavaScript ecosystem is known (and criticized) for
-  a proliferation of tiny libraries.
+   Notice that many dependencies were downloaded along with Babel. These are all of
+   Babel's dependencies. The JavaScript ecosystem is known (and criticized) for
+   a proliferation of tiny libraries.
 
-  `$ cat node_modules/array-unique/index.js`
+   `$ cat node_modules/array-unique/index.js`
 
-  Here is an example. The array-unique package has 1 file that returns an array
-  free of duplicate values. It is 28 lines long, including comments!
+   Here is an example. The array-unique package has 1 file that returns an array
+   free of duplicate values. It is 28 lines long, including comments!
 
 3. Verify the Babel is installed and is executable.
 
-  `$ ./node_modules/.bin/babel --help`
+   `$ ./node_modules/.bin/babel --help`
 
-  Any node module that has an executable file will automatically be installed into
-  `./node_modules/.bin`.
+   Any node module that has an executable file will automatically be installed into
+   `./node_modules/.bin`.
 
 4. Create a simple test file to illustrate Babel.
 
-  `$ echo "[1,2,3].map((n) => n+1);" > test.js`
+   `$ echo "[1,2,3].map((n) => n+1);" > test.js`
 
-  This file contains some ES6 code. Namely, an arrow function.
+   This file contains some ES6 code. Namely, an arrow function.
 
 5. Compile the test file with Babel.
 
-  `$ ./node_modules/.bin/babel test.js`
+   `$ ./node_modules/.bin/babel test.js`
 
-  ... and nothing happens!
+   ... and nothing happens!
 
-  Babel, like many others, is a 3-stage compiler: parse, transform, and generate.
-  Transformations in Babel are architected as a plugin system. So, without any
-  plugins, Babel basically only does the parse and generate steps, making it a no-op.
+   Babel, like many others, is a 3-stage compiler: parse, transform, and generate.
+   Transformations in Babel are architected as a plugin system. So, without any
+   plugins, Babel basically only does the parse and generate steps, making it a no-op.
 
-  Before Babel can be very useful to us, we will have to install some transformation
-  plugins, called presets, and configure Babel to use them.
+   Before Babel can be very useful to us, we will have to install some transformation
+   plugins, called presets, and configure Babel to use them.
 
 
 ## Part 4: Configure Babel with ES6 preset
