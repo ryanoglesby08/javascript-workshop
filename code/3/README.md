@@ -10,7 +10,6 @@ Introduce 2 of the 3 parts of a modern JS build pipeline: the package manager an
 2. Attendees rewrite all JS in ES6. Show in browser.
 3. Attendees switch to JSX syntax. Show in browser, error.
 4. Introduce npm and Babel.
-3. Switch to command-line.md to set up npm project with Babel
 
 ## Concepts
 
