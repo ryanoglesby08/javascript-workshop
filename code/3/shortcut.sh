@@ -11,8 +11,9 @@ curl -s https://raw.githubusercontent.com/ryanoglesby08/javascript-workshop/mast
 curl -s https://raw.githubusercontent.com/ryanoglesby08/javascript-workshop/master/code/3/.babelrc -o .babelrc
 curl -s https://raw.githubusercontent.com/ryanoglesby08/javascript-workshop/master/code/3/index.html -o index.html
 
-curl -s https://raw.githubusercontent.com/ryanoglesby08/javascript-workshop/master/code/3/index.html -o package.json
+curl -s https://raw.githubusercontent.com/ryanoglesby08/javascript-workshop/master/code/3/package.json -o package.json
 
+npm install
 npm run build
 
 open index.html
