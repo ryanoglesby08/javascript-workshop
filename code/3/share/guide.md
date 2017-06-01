@@ -79,9 +79,9 @@ edition._
 
    [DO] Replace all `var` declarations with `const`. <br/>
    <https://babeljs.io/learn-es2015/#ecmascript-2015-features-let-const>
-     
+
    [DO] Replace all `function` declarations with the arrow function syntax.
-   
+
    For example:
 
    ```js
@@ -98,10 +98,10 @@ edition._
    <http://es6-features.org/#StatementBodies>
 
    [DO] If using IntelliJ, configure IntelliJ to recognize ES6 syntax.
-   
+
       * Command + "," to open up the settings menu.
       * Choose Languages & Frameworks > JavaScript.
-      * Change "JavaScript language version" to "React JSX" (your IntelliJ version 
+      * Change "JavaScript language version" to "React JSX" (your IntelliJ version
       may show "JSX Harmony" instead, they are the same).
 
 4. Refresh index.html in your browser.
@@ -109,16 +109,16 @@ edition._
    If you are using a modern browser, such as Google Chrome or Firefox, the app will
    continue to work as before. The latest versions of all modern browsers have
    support for ECMAScript 6. However, older browsers such as IE 11 and below do not.
-   
+
    If something goes wrong, check the JavaScript console for errors. You most likely
    have a syntax error.
 
 5. Rewrite Feed.js using ES6 syntax.
 
    [DO] Replace all `var` declarations with `const`.
-   
+
    [DO] Replace all `function` declarations with the arrow function syntax.
-   
+
    [DO] Use destructing to extract a named key from the "props" argument.
 
     For example:
@@ -141,9 +141,9 @@ edition._
 7. Rewrite Tweeter.js using ES6 syntax.
 
    [DO] Replace all `var` declarations with `const`.
-   
+
    [DO] Replace all `function` declarations with the arrow function syntax.
-   
+
    [DO] The `Tweeter` function is only a return statement, so there is a shorthand for that.
 
    For example:
@@ -237,7 +237,7 @@ React Components easier, so the changes are minimal and only effect React Compon
 3. Rewrite Feed.js using JSX syntax.
 
    [DO] You can interpolate JavaScript variables as text by using curly braces.
-   
+
    For example:
 
    ```js
@@ -262,7 +262,7 @@ React Components easier, so the changes are minimal and only effect React Compon
 
    When passing a JavaScript variable into another JSX component as a prop, use curly
    braces again.
-   
+
    For example:
 
    ```js
@@ -394,9 +394,9 @@ into an application in a more true sense of the word.
 
    `$ npm install babel-preset-env --save-dev`
 
-   The "env" preset can configure Babel to transform JavaScript for a specified 
-   environment. 
-   
+   The "env" preset can configure Babel to transform JavaScript for a specified
+   environment.
+
    Notice we do `--save-dev`again because a Babel preset is a development dependency.
 
    This will only download the node module, and now we need to tell Babel to use it.
@@ -463,30 +463,27 @@ into an application in a more true sense of the word.
 4. Compile index.js with Babel.
 
    `$ ./node_modules/.bin/babel index.js`
-   
+
    As you can see, the JSX syntax simply is transformed back into `React.createElement`, which
    is something the browser will be able to interpret.
-   
+
    [DO] Try running Babel on the other JavaScript files and view the output.
 
 
 ## Part 6: Set up a compilation step for the project.
 
-1. Create source code and compilation target directories.
+1. Create source code directory for better organization.
 
    ```sh
    $ mkdir src
    $ mv *.js src/
-   $ mkdir dist
    ```
-
-   The "src" and "dist" directory names are conventional, but arbitrary.
 
    We will leave index.html in the project root.
 
 2. Create an npm script to do Babel compilation.
 
-   [DO] Edit your package.json to add a script.
+   [DO] Edit your package.json to add a "build" script.
 
    ```json
    "scripts": {

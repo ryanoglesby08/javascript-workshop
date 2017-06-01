@@ -63,8 +63,13 @@ Pass the list of tweets into `Feed` here as the `tweets` prop.
 </script>
 ```
 
+## Everything is static
 
-## Next...
+Right now, you will notice that everything is static. While you can type into the textarea and click the button, nothing happens. We have not implemented any behavior yet. This is fine and often recommended, as this allows us to see the structure of our app and start to get a hang of where things go. 
+
+Don't worry, we will add behavior soon, but not yet...
+
+## Next... focus on tooling
 
 Now that we have some components, there are some obvious downsides here.
 
