@@ -1,4 +1,4 @@
-# Shortcut for Module 3
+Shortcut for Module 3
 ====================
 
 In order to ensure we are all the same place at the end of the module, please do
